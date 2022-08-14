@@ -27,7 +27,7 @@ class QuestionModel(models.Model):
 class AnswerModel(models.Model):
     text = models.CharField(max_length=255)
     is_correct = models.BooleanField(default=False)
-    question = models.ForeignKey(QuestionModel, on_delete=models.CASCADE)
+    question = models.ForeignKey(QuestionModel, on_delete=models.CASCADE, related_name='answers')
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
