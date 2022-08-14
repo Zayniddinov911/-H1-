@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'mars.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dbtest',
+        'NAME': 'testdb',
         'USER': 'eqnwaonunihftp',
         'PASSWORD': '5b9378c0acf195404e5b8fe4c08bf3f23417404d94bc39c76538cc3e2ef7e359',
         'HOST': 'ec2-54-87-179-4.compute-1.amazonaws.com',
