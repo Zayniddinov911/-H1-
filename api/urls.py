@@ -8,5 +8,6 @@ urlpatterns = [
     path('questions/', views.getQuestions),
     path('user/', views.getUser),
     path('add_user/', views.addUser),
-
+    path('score/', views.getScore),
+    path('add_score/', views.addScore),
 ]

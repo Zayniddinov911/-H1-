@@ -1,7 +1,8 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from basic.models import QuizModel, AnswerModel, QuestionModel, UserModel
-from .serializers import QuizModelSerializer, AnswerModelSerializer, QuestionModelSerializer, UserModelSerializer
+from basic.models import QuizModel, AnswerModel, QuestionModel, UserModel, ScoreModel
+from .serializers import QuizModelSerializer, AnswerModelSerializer, QuestionModelSerializer, UserModelSerializer, \
+    ScoreModelSerializer
 
 
 @api_view(['GET'])
@@ -43,6 +44,21 @@ def getUser(request):
 @api_view(['POST'])
 def addUser(request):
     serializer = UserModelSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def getScore(request):
+    score = ScoreModel.objects.all()
+    serializer = ScoreModelSerializer(score, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def addScore(request):
+    serializer = ScoreModelSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
